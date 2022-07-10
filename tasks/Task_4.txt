@@ -1,0 +1,36 @@
+package main
+
+import (
+	"fmt"
+	"math/big"
+)
+
+// 20 минут
+
+func main() {
+	for i := 2; i < 200; i++ {
+		if str(i) {
+			fmt.Printf("Является ли число: %d простым: %v  \n", i, str(i))
+		}
+		if strGo(i) {
+			fmt.Printf("Является ли число: %d простым: %v   (AutoFunc) \n", i, str(i))
+		}
+	}
+}
+
+func str(a int) bool {
+
+	for i := 2; i < a; i++ {
+		if a%i == 0 {
+			return false
+		}
+	}
+	return true
+}
+func strGo(a int) bool {
+	if big.NewInt(int64(a)).ProbablyPrime(0) {
+		return true
+	} else {
+		return false
+	}
+}

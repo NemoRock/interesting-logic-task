@@ -1,0 +1,28 @@
+package main
+
+import (
+	"fmt"
+	"strconv"
+)
+
+// 10 минут
+
+func main() {
+	for i := 0; i < 1050; i++ {
+		fmt.Println(str(i))
+	}
+
+}
+
+func str(a int) string {
+	switch {
+	case a == 0 || a >= 5 && a < 21 || a > 20 && a%10 != 1:
+		return strconv.Itoa(a) + " компьютеров"
+	case a == 2 || a == 3 || a == 4 || a > 20 && a%10 == 2 || a > 20 && a%10 == 3 || a > 20 && a%10 == 4:
+		return strconv.Itoa(a) + " компьютера"
+	case a == 1 || a > 20 && a%10 == 1:
+		return strconv.Itoa(a) + " компьютер"
+	default:
+		return ""
+	}
+}

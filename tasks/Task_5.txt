@@ -1,0 +1,38 @@
+package main
+
+import (
+	"fmt"
+	"sort"
+)
+
+// 60 минут
+
+func main() {
+	arr1 := []int{7, 17, 1, 9, 1, 17, 56, 56, 23}
+	arr2 := []int{56, 17, 17, 1, 23, 34, 23, 1, 8, 1}
+
+	fmt.Println(arr(arr1, arr2))
+}
+
+func arr(a, b []int) []int {
+
+	a = sortSl(a)
+	b = sortSl(b)
+
+	return sortSl(append(a, b...))
+}
+
+func sortSl(s []int) (outArr []int) {
+	sort.Ints(s)
+	k := s[0]
+	for i := 1; i < len(s); i++ {
+		if s[i] == k {
+			if len(outArr) != 0 && outArr[len(outArr)-1] == s[i] {
+				continue
+			}
+			outArr = append(outArr, s[i])
+		}
+		k = s[i]
+	}
+	return outArr
+}

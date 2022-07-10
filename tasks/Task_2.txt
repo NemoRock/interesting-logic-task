@@ -1,0 +1,20 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+// 5 минут
+
+func main() {
+	number := 13.8
+	fmt.Println(numbers(number))
+}
+
+func numbers(inputNum float64) (outputNum int) {
+
+	inputNum /= 5
+	outputNum = int(math.Round(inputNum)) * 5
+	return
+}
